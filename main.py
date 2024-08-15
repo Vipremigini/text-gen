@@ -34,28 +34,18 @@ def gen(text, order, length):
 
 def gentmod(data):
     l = data.split()
-<<<<<<< HEAD
-    mod = {}
-    for i in range(0,len(l)):
-        f = data[i]
-        n = data[i+1]
-=======
     print(l)
     mod = {}
     for i in range(0,len(l)-1):
         f = l[i]
         n = l[i+1]
->>>>>>> hour2
         if f not in mod:
             mod[f] = {}
         if n not in mod[f]:
             mod[f][n] = 1
         else:
             mod[f][n] += 1
-<<<<<<< HEAD
-=======
     mod[l[-1]] = "/n"
->>>>>>> hour2
     return mod
 
 def getnt(mod, f):
@@ -65,13 +55,11 @@ def getnt(mod, f):
             tokens.append(token)
     return choice(tokens)
 
-<<<<<<< HEAD
-=======
 def gent(text,length):
     model = gentmod(text)
     print(model)
-    currentt = choice(text.split())
-    output = ""
+    currentt = "The"
+    output = "The"
     for i in range(0, length):
         newt = getnt(model, currentt)
         output += newt + " "
@@ -79,7 +67,6 @@ def gent(text,length):
     print(output)
 
 
->>>>>>> hour2
 
 
 text = '''Once, a girl and a boy walked by a green field. They saw a yellow ball. The girl said, "Let's play!" The boy agreed, so they ran to get the ball.
@@ -101,12 +88,6 @@ In a faraway village, a young girl loved to watch the birds fly. Her favorite wa
 
 There was a small pond where a frog lived. The frog liked to hop on lily pads and catch flies. One day, a duck and a hen visited the pond. The frog asked them, “Would you like to see my special trick?” The duck and hen nodded. The frog then did a big jump and spun in the air before landing on a lily pad. The duck and hen clapped their wings and said, “That was amazing!” They all became friends and played at the pond every afternoon.
 
-<<<<<<< HEAD
-'''
-
-
-gen(text,6,500)
-=======
 A cat and a dog were best friends. One day, they found a red ball and decided to play together. The cat would chase the ball, and the dog would catch it. They had so much fun that they didn’t even notice the sun setting. They promised to play again the next day
 
 A rabbit loved to hop around the garden. One day, it found a shiny silver coin buried in the dirt. The rabbit showed it to a mouse, and they both decided to hide it under a big rock. They would check on their treasure every week.
@@ -147,4 +128,3 @@ A snake lived near a tree. It liked to slither through the grass and watch the a
 gen(text,6,100)
 print('next')
 gent(text,200)
->>>>>>> hour2
