@@ -14,7 +14,6 @@ def genmod(data, order):
     return mod
 
 
-
 def getn(mod, f):
     letters = []
     for letter in mod[f].keys():
@@ -32,6 +31,30 @@ def gen(text, order, length):
         output += newc
         currentf = currentf[1:] + newc
     print( output)
+
+
+def gentmod(data):
+    l = data.split()
+    mod = {}
+    for i in range(0,len(l)):
+        f = data[i]
+        n = data[i+1]
+        if f not in mod:
+            mod[f] = {}
+        if n not in mod[f]:
+            mod[f][n] = 1
+        else:
+            mod[f][n] += 1
+    return mod
+
+def getnt(mod, f):
+    tokens = []
+    for token in mod[f].keys():
+        for times in range(0, mod[f][token]):
+            tokens.append(token)
+    return choice(tokens)
+
+
 
 text = '''Once, a girl and a boy walked by a green field. They saw a yellow ball. The girl said, "Let's play!" The boy agreed, so they ran to get the ball.
 
@@ -55,4 +78,4 @@ There was a small pond where a frog lived. The frog liked to hop on lily pads an
 '''
 
 
-gen(text,6,1000)
+gen(text,6,500)
