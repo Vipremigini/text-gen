@@ -18,11 +18,10 @@ for i in range(len(s)-2):
 
 def gentmod(lst):
     mod = {}
-    print(lst[5])
     for i in range(len(lst)):
         
-        f = lst[i][0:2]
-        n = lst[i]
+        f = (lst[i][0],lst[i][1])
+        n = lst[i][2]
         if f not in mod:
             mod[f] = {}
         if n not in mod[f]:
@@ -40,14 +39,13 @@ def getnt(mod, f):
 
 def gent(lst,length):
     mod = gentmod(lst)
-    
     currentt = choice(list(mod.keys()))
-    print(mod[currentt])
-    output = currentt[0]+currentt[1]
+
+    output = currentt[0]+ " " +currentt[1] + " "
     for i in range(0, length):
         newt = getnt(mod, currentt)
         output += newt + " "
-        currentt = newt
+        currentt = (currentt[1],newt)
     print(output)
 
 
