@@ -46,7 +46,7 @@ def gent(lst,length):
         newt = getnt(mod, currentt)
         output += newt + " "
         currentt = (currentt[1],currentt[2],newt)
-    print(output)
+    return output
 
 
 
