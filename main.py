@@ -1,5 +1,5 @@
 from random import choice
-
+import math
 def genmod(data, order):
     mod = {}
     for i in range(0, len(data)-order):
@@ -34,10 +34,9 @@ def gen(text, order, length):
 
 def gentmod(data):
     l = data.split()
-    print(l)
     mod = {}
     for i in range(0,len(l)-1):
-        f = l[i]
+        f = (l[math.fmod(i-1)],l[i])
         n = l[i+1]
         if f not in mod:
             mod[f] = {}
@@ -58,7 +57,7 @@ def getnt(mod, f):
 def gent(text,length):
     model = gentmod(text)
     print(model)
-    currentt = "The"
+    currentt = (None,'The')
     output = "The "
     for i in range(0, length):
         newt = getnt(model, currentt)
