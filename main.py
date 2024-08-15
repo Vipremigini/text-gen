@@ -34,8 +34,7 @@ def gen(text, order, length):
 
 def gentmod(data):
     l = data.split()
-    mod = {}
-    mod[(None,l[0])][l[1]] = 1
+    mod = {(None,l[0]): {l[1]: 1}}
     for i in range(1,len(l)-1):
         f = (l[i-1],l[i])
         n = l[i+1]
