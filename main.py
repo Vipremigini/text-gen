@@ -1,5 +1,7 @@
 from random import choice
 import math
+import re
+
 def genmod(data, order):
     mod = {}
     for i in range(0, len(data)-order):
@@ -35,7 +37,6 @@ def gen(text, order, length):
 def gentmod(data):
     l = data.split()
     mod = {}
-    print(mod)
     for i in range(0,len(l)-1):
         f = l[i]
         n = l[i+1]
@@ -45,11 +46,12 @@ def gentmod(data):
             mod[f][n] = 1
         else:
             mod[f][n] += 1
-    mod[l[-1]] = "/n"
+    #mod[l[-1]] = "/n"
     return mod
 
 def getnt(mod, f):
     tokens = []
+    print(mod[f])
     for token in mod[f].keys():
         for times in range(0, mod[f][token]):
             tokens.append(token)
@@ -57,9 +59,8 @@ def getnt(mod, f):
 
 def gent(text,length):
     model = gentmod(text)
-    print(model)
-    currentt = 'The'
-    output = "The "
+    currentt = 'the'
+    output = "the "
     for i in range(0, length):
         newt = getnt(model, currentt)
         output += newt + " "
@@ -71,6 +72,9 @@ def gent(text,length):
 
 f = open("text.txt", "r" )
 text = f.read()
+text = re.sub(r"[^a-zA-Z0-9\s]", "", text)
+text = text.lower()
+print(text)
 gen(text,6,100)
 print('next')
 gent(text,200)
