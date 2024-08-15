@@ -5,7 +5,7 @@ import re
 
 f = open("text.txt", "r" )
 text = f.read()
-#text = re.sub(r"[^a-zA-Z0-9\s]", "", text)
+text = re.sub(r"[^a-zA-Z0-9\s]", "", text)
 text = text.lower()
 s = text.split()
 lst = []
@@ -39,7 +39,7 @@ def getnt(mod, f):
 
 def gent(lst,length):
     mod = gentmod(lst)
-    currentt = ('all','the','souls')
+    currentt = ('the','function','of')
 
     output = currentt[0]+ " " +currentt[1] + " " + currentt[2] + " "
     for i in range(0, length):
