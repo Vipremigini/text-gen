@@ -5,12 +5,12 @@ import re
 
 f = open("text.txt", "r" )
 text = f.read()
-text = re.sub(r"[^a-zA-Z0-9\s]", "", text)
+#text = re.sub(r"[^a-zA-Z0-9\s]", "", text)
 text = text.lower()
 s = text.split()
 lst = []
-for i in range(len(s)-2):
-    k = [s[i],s[i+1],s[i+2]]
+for i in range(len(s)-3):
+    k = [s[i],s[i+1],s[i+2],s[i+3]]
     k = tuple(k)
     lst.append(k)
 
@@ -20,8 +20,8 @@ def gentmod(lst):
     mod = {}
     for i in range(len(lst)):
         
-        f = (lst[i][0],lst[i][1])
-        n = lst[i][2]
+        f = (lst[i][0],lst[i][1],lst[i][2])
+        n = lst[i][3]
         if f not in mod:
             mod[f] = {}
         if n not in mod[f]:
@@ -39,13 +39,13 @@ def getnt(mod, f):
 
 def gent(lst,length):
     mod = gentmod(lst)
-    currentt = choice(list(mod.keys()))
+    currentt = ('all','the','souls')
 
-    output = currentt[0]+ " " +currentt[1] + " "
+    output = currentt[0]+ " " +currentt[1] + " " + currentt[2] + " "
     for i in range(0, length):
         newt = getnt(mod, currentt)
         output += newt + " "
-        currentt = (currentt[1],newt)
+        currentt = (currentt[1],currentt[2],newt)
     print(output)
 
 
