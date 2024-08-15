@@ -37,10 +37,8 @@ def getnt(mod, f):
             tokens.append(token)
     return choice(tokens)
 
-def gent(lst,length):
-    mod = gentmod(lst)
+def gent(lst,length, mod):
     currentt = choice(list(mod.keys()))
-
     output = currentt[0]+ " " +currentt[1] + " " 
     for i in range(0, length):
         newt = getnt(mod, currentt)
