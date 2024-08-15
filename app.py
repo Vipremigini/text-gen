@@ -2,6 +2,7 @@ from flask import Flask, request
 import requests
 import os
 import main
+import re
 
 url = 'https://jamsapi.hackclub.dev/openai/chat/completions'
 
