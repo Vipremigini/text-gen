@@ -59,7 +59,7 @@ def gent(text,length):
     model = gentmod(text)
     print(model)
     currentt = "The"
-    output = "The"
+    output = "The "
     for i in range(0, length):
         newt = getnt(model, currentt)
         output += newt + " "
