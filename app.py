@@ -53,7 +53,7 @@ def get():
     for i in qlist:
         ctext = ctext[:i+1] + "'" + ctext[i+1:]
         
-    com = "insert into botquotes values('" + rtext + "')"
+    com = "insert into botquotes values('" + ctext + "')"
     cur.execute(com)
     con.commit()
     return {"blocks": [
