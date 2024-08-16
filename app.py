@@ -22,7 +22,7 @@ for i in range(len(s)-2):
     k = [s[i],s[i+1],s[i+2]]
     k = tuple(k)
     lst.append(k)
-mq = open("mq.txt","a")
+mq = open("\tmp\mq.txt","a")
 
 mod = main.gentmod(lst)
 app = Flask(__name__)
