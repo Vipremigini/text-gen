@@ -43,6 +43,16 @@ def get():
     response = requests.post(url, headers=headers, json=data)
     rdata = response.json()
     rtext = rdata['choices'][0]['message']['content']
+    ctext = rtext
+    qlist = []
+    for i in range(len(ctext)):
+        if ctext[i] == "'":
+            qlist.append(i)
+    for i in range(len(qlist)):
+        qlist[i] = qlist[i] + 1
+    for i in qlist:
+        ctext = ctext[:i+1] + "'" + ctext[i+1:]
+        
     com = "insert into botquotes values('" + rtext + "')"
     cur.execute(com)
     con.commit()
