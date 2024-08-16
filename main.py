@@ -37,23 +37,13 @@ def getnt(mod, f):
             tokens.append(token)
     return choice(tokens)
 
-def gent(lst,length):
-    mod = gentmod(lst)
+def gent(lst,length, mod):
     currentt = choice(list(mod.keys()))
-
     output = currentt[0]+ " " +currentt[1] + " " 
     for i in range(0, length):
         newt = getnt(mod, currentt)
         output += newt + " "
-<<<<<<< HEAD
         currentt = (currentt[1],newt)
-    print(output)
-=======
-        currentt = (currentt[1],currentt[2],newt)
     return output
->>>>>>> 176448874ccaa5610e61d4327117ff8024a51c60
 
 
-
-
-gent(lst,200)
