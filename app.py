@@ -64,24 +64,3 @@ def get():
         "text": rtext
       }
     }]}
-
-@app.post("/api/add")
-def ins():
-    t = "cgptquotes"
-    cf = open("cq.txt","r")
-    qs = cf.readlines()
-
-    conn = psycopg2.connect(
-        host=os.environ.get("POSTGRES_HOST"),
-        database=os.environ.get("POSTGRES_DATABASE"),
-        user=os.environ.get("POSTGRES_USER"),
-        password=os.environ.get("POSTGRES_PASSWORD")
-    )
-    
-    cursor = conn.cursor()
-
-    cursor.executemany(f"INSERT INTO {t} (quote) VALUES (%s)", [(q,) for q in qs])
-    
-    conn.commit()
-    cursor.close()
-    conn.close()
