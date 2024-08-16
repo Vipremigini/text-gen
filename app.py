@@ -22,6 +22,7 @@ for i in range(len(s)-2):
     k = [s[i],s[i+1],s[i+2]]
     k = tuple(k)
     lst.append(k)
+mq = open("mq.txtx","a")
 
 mod = main.gentmod(lst)
 app = Flask(__name__)
@@ -39,14 +40,7 @@ def get():
     response = requests.post(url, headers=headers, json=data)
     rdata = response.json()
     rtext = rdata['choices'][0]['message']['content']
-    rsend = {"blocks": [
-    {
-      "type": "section",
-      "text": {
-        "type": "mrkdwn",
-        "text": rtext
-      }
-    }]}
+    mq.write(rtext + " \n")
   
     return {"blocks": [
     {
