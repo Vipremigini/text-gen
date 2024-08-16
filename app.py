@@ -49,7 +49,7 @@ def get():
         if ctext[i] == "'":
             qlist.append(i)
     for i in range(len(qlist)):
-        qlist[i] = qlist[i] + 1
+        qlist[i] = qlist[i] + i
     for i in qlist:
         ctext = ctext[:i+1] + "'" + ctext[i+1:]
         
