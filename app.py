@@ -54,8 +54,8 @@ def get():
         ctext = ctext[:i+1] + "'" + ctext[i+1:]
         
     com = "insert into botquotes values('" + ctext + "')"
-    cur.execute(com)
-    con.commit()
+    #cur.execute(com)
+    #con.commit()
     return {"blocks": [
     {
       "type": "section",
